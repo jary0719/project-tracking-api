@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+
+    <context id="mysqlTables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/projecttracking?useUnicode=true&amp;characterEncoding=utf8"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--实体类-->
+        <javaModelGenerator targetPackage="net.suncaper.projecttracking.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <table tableName="pt_user" domainObjectName="User">
+            <property name="rootClass" value="net.suncaper.projecttracking.domain.UserExt"/>
+        </table>
+        <table tableName="pt_role" domainObjectName="Role">
+            <property name="rootClass" value="net.suncaper.projecttracking.domain.RoleExt"/>
+        </table>
+        <table tableName="pt_permission" domainObjectName="Permission"></table>
+        <table tableName="pt_user_role" domainObjectName="UserRole"></table>
+
+
+        <table tableName="pt_project" domainObjectName="Project">
+            <property name="rootClass" value="net.suncaper.projecttracking.domain.ProjectExt"/>
+        </table>
+        <table tableName="pt_project_dept" domainObjectName="ProjectDept"></table>
+        <table tableName="pt_joint_company" domainObjectName="JointCompany"></table>
+        <table tableName="pt_sys_dic" domainObjectName="SysDict"></table>
+        <table tableName="pt_joint_dept" domainObjectName="JointDept"></table>
+
+    </context>
+
+
+</generatorConfiguration>
